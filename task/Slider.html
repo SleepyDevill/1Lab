@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="..\scc.css">
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+</head>
+<body onload="init()">
+	<div class="menu1">
+
+		<ul class="js-list">
+			      <li><a href="Accordion.html">Accordion</a></li>
+      <li><a href="Slider.html">Slider</a></li>
+      <li><a href="Progressbar.html">Progressbar</a></li>
+      <li><a href="Spinner.html">Spinner</a></li>
+      <li><a href="Widget.html">Widget</a></li>
+      
+			
+		</ul>
+	</div>
+	<div class="cont">  
+		<h1>Slider на js без  jQuery</h1>
+
+		<div class="slider">
+			<div class="item">
+				<img src="https://99px.ru/sstorage/53/2015/05/tmb_130855_6180.jpg" alt="Первый слайд">
+				<div class="slideText">мяв</div>
+			</div>
+
+			<div class="item">
+				<img src="https://www.meme-arsenal.com/memes/6695389e7de339c5911e830b8b2dc995.jpg" alt="Второй слайд">
+				<div class="slideText">мур</div>
+			</div>
+
+			<div class="item">
+				<img src="https://www.meme-arsenal.com/memes/c2c147dcd0a91c561966c8342dd7586a.jpg" alt="Третий слайд">
+				<div class="slideText">кусь</div>
+			</div>
+
+			<a class="prev" onclick="minusSlide()">&#10094;</a>
+			<a class="next" onclick="plusSlide()">&#10095;</a>
+		</div>
+
+		<div class="slider-dots">
+			<span class="slider-dots_item" onclick="currentSlide(1)"></span> 
+			<span class="slider-dots_item" onclick="currentSlide(2)"></span> 
+			<span class="slider-dots_item" onclick="currentSlide(3)"></span> 
+		</div>
+		<script type="text/javascript"> 
+			var slideIndex = 1;
+			showSlides(slideIndex);
+
+			
+			function plusSlide() {
+				showSlides(slideIndex += 1);
+			}
+
+			
+			function minusSlide() {
+				showSlides(slideIndex -= 1);  
+			}
+
+			
+			function currentSlide(n) {
+				showSlides(slideIndex = n);
+			}
+			
+			function showSlides(n) {
+				var i;
+				var slides = document.getElementsByClassName("item");
+				var dots = document.getElementsByClassName("slider-dots_item");
+				if (n > slides.length) {
+					slideIndex = 1
+				}
+				if (n < 1) {
+					slideIndex = slides.length
+				}
+				for (i = 0; i < slides.length; i++) {
+					slides[i].style.display = "none";
+				}
+				for (i = 0; i < dots.length; i++) {
+					dots[i].className = dots[i].className.replace(" active", "");
+				}
+				slides[slideIndex - 1].style.display = "block";
+				dots[slideIndex - 1].className += " active";
+			}</script>
+
+			<h1>Slider на js з  jQuery</h1>
+
+			
+			
+			
+
+			<script type="text/javascript">
+				var text_slide_cur=0;
+				function showtext_slide(){
+					$('#slide'+(text_slide_cur+1)).css({opacity: 0}).animate({opacity: 1.0,center: "50px"}, 1000);
+					setTimeout(hidetext_slide, 3000);
+				}
+				function hidetext_slide(){
+					$('#slide'+(text_slide_cur+1)).css({opacity: 1}).animate({opacity: 0,center: "-50px"}, 1000,function(){showtext_slide();});
+					text_slide_cur=(text_slide_cur+1)%5;
+				}
+				$(document).ready(function() {
+					showtext_slide();
+				})
+			</script>
+			
+			
+
+			<div id="slide1"><img src="https://i.gifer.com/N9m4.gif" alt=""></div>
+			<div id="slide2"><img src="https://i.gifer.com/embedded/download/yZy.gif"></div>
+			<div id="slide3"><img src="https://i.gifer.com/1I0f.gif"></div>
+		</div>
+	</body>
+	</html>

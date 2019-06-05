@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="..\scc.css">
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/hot-sneaks/jquery-ui.css" />
+	<script src="http://code.jquery.com/jquery-2.1.3.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#demoMenu").menu();
+		});
+	</script> 
+
+</head>
+<body onload="init()">
+	<div class="menu1">
+
+		<ul class="js-list">
+			      <li><a href="Accordion.html">Accordion</a></li>
+      <li><a href="Slider.html">Slider</a></li>
+      <li><a href="Progressbar.html">Progressbar</a></li>
+      <li><a href="Spinner.html">Spinner</a></li>
+      <li><a href="Widget.html">Widget</a></li>
+      
+			
+		</ul>
+	</div>
+	<div class="cont">
+		<h1>Widget на js без  jQuery</h1>
+
+		<script type="text/javascript">
+			function Menu(options) {
+				var elem;
+
+				function getElem() {
+					if (!elem) render();
+					return elem;
+				}
+
+				function render() {
+					elem = document.createElement('div');
+					elem.className = "menu";
+
+					var titleElem = document.createElement('span');
+					elem.appendChild(titleElem);
+					titleElem.className = "title";
+					titleElem.textContent = options.title;
+
+					elem.onmousedown = function() {
+						return false;
+					};
+
+					elem.onclick = function(event) {
+						if (event.target.closest('.title')) {
+							toggle();
+						}
+					}
+
+				}
+
+				function renderItems() {
+					var items = options.items || [];
+					var list = document.createElement('ul');
+					items.forEach(function(item) {
+						var li = document.createElement('li');
+						li.textContent = item;
+						list.appendChild(li);
+					});
+					elem.appendChild(list);
+				}
+
+				function open() {
+					if (!elem.querySelector('ul')) {
+						renderItems();
+					}
+					elem.classList.add('open');
+				};
+
+				function close() {
+					elem.classList.remove('open');
+				};
+
+				function toggle() {
+					if (elem.classList.contains('open')) close();
+					else open();
+				};
+
+				this.getElem = getElem;
+				this.toggle = toggle;
+				this.close = close;
+				this.open = open;
+			}
+		</script>
+		
+		
+		<button id= "menu" onclick="menu.open()">Открыть меню</button>
+		<button id= "menu" onclick="menu.close()">Закрыть меню</button>
+		
+		<script type="text/javascript">
+			var menu = new Menu({
+				title: "Котячьи_нежности",
+				items: [
+				"Кусь",
+				"Мур",
+				"Мяу",
+				
+				]
+			});
+
+			document.body.appendChild(menu.getElem());
+		</script>
+		
+
+		
+	</div>
+	<div class="cont">
+		<h1>Widget на js з  jQuery</h1>
+		<ul id="demoMenu">
+			
+			<li><a href="#">Котик1</a></li>
+			<li><a href="#">Котик2</a>
+				<ul>
+					
+					<li class="ui-state-disabled"><a href="#">мур</a></li>
+					
+				</ul>
+			</li>
+			
+			<li><a href="#">Котик3</a>
+				<ul>
+					<li><a href="#">мяу</a>
+						<ul>
+							
+							<li><a href="#">кусь</a></li>
+							<li><a href="#">кусь</a></li>
+							<li><a href="#">кусь</a></li>
+						</ul>
+					</li>
+					
+					<li class="ui-state-disabled"><a href="#">Собакен1</a></li>
+				</ul>
+			</div>
+		</body>
+		</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="..\scc.css">
+  <title></title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
+  <script type="text/javascript">
+    $(function() {
+      $('#progressDiv').progressbar({
+        value: 21
+      });
+    });
+  </script>
+</head>
+<body onload="init()">
+  <div class="menu1">
+
+    <ul class="js-list">
+      <li><a href="Accordion.html">Accordion</a></li>
+      <li><a href="Slider.html">Slider</a></li>
+      <li><a href="Progressbar.html">Progressbar</a></li>
+      <li><a href="Spinner.html">Spinner</a></li>
+      <li><a href="Widget.html">Widget</a></li>
+      
+    </ul>
+  </div>
+  <div class="cont">
+    <h1>Progressbar на js без  jQuery</h1>
+
+    <ul>
+
+      <li>
+        <p>Уровень выполнения лабы</p>
+        <div class="myProgress">
+          <div class="myBar"></div>
+        </div>
+        <p class="max-value" data-max='100'>0</p>
+      </li>
+
+      <li>
+        <p>Вероятность того, что поставят максимальный бал</p>
+        <div class="myProgress">
+          <div class="myBar"></div>
+        </div>
+        <p class="max-value" data-max='100'>0</p>
+      </li>
+
+      <li>
+        <p>Кличество няв за день </p>
+        <div class="myProgress">
+          <div class="myBar"></div>
+        </div>
+        <p class="max-value" data-max='42'>0</p>
+      </li>
+
+      <li>
+        <p>Количество мур за день</p>
+        <div class="myProgress">
+          <div class="myBar"></div>
+        </div>
+        <p class="max-value" data-max='55'>0</p>
+      </li>
+
+    </ul>
+    <script type="text/javascript"> 
+      var width = 1;
+      var elem = document.getElementsByClassName("myBar");
+      var maxValue = document.getElementsByClassName('max-value'); 
+
+      for(var i = 0; i < elem.length; i++) {
+        var params = {
+          elem: elem[i],
+          maxElem: maxValue[i],
+          width: width,
+          interval: null
+        };
+        params.interval = setInterval(frame, 50, params);
+      }
+
+      function frame(aParams) {
+        if (aParams.width >= aParams.maxElem.dataset.max) {
+          clearInterval(aParams.interval);
+        } else {
+          aParams.width++;
+          aParams.elem.style.backgroundColor = 'blue';
+          aParams.elem.style.width = aParams.width + '%';
+          aParams.maxElem.innerHTML = aParams.width + '%';
+        }
+      }</script>
+
+      <h1>Progressbar на js з  jQuery</h1>
+      <div id="progressDiv"></div>
+    </div>
+    
+    
+  </body>
+  </html>

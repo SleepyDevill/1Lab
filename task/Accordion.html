@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="..\scc.css">
+	<title></title>
+	
+	
+	
+	<script type="text/javascript">  var accordionItems = new Array();
+	function init() {
+		
+		var divs = document.getElementsByTagName( 'div' );
+		for ( var i = 0; i < divs.length; i++ ) {
+			if ( divs[i].className == 'accordionItem' ) accordionItems.push( divs[i] );
+		}
+
+		for ( var i = 0; i < accordionItems.length; i++ ) {
+			var h2 = getFirstChildWithTagName( accordionItems[i], 'H2' );
+			h2.onclick = toggleItem;
+		}
+
+		for ( var i = 1; i < accordionItems.length; i++ ) {
+			accordionItems[i].className = 'accordionItem hide';
+		}
+	}
+
+	function toggleItem() {
+		var itemClass = this.parentNode.className;
+
+		for ( var i = 0; i < accordionItems.length; i++ ) {
+			accordionItems[i].className = 'accordionItem hide';
+		}
+
+		if ( itemClass == 'accordionItem hide' ) {
+			this.parentNode.className = 'accordionItem';
+		}
+	}
+
+	function getFirstChildWithTagName( element, tagName ) {
+		for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		}
+	}
+</script>
+
+</head>
+<body onload="init()">
+	<div class="menu1">
+
+		<ul class="js-list">
+		 
+			      <li><a href="Accordion.html">Accordion</a></li>
+      <li><a href="Slider.html">Slider</a></li>
+      <li><a href="Progressbar.html">Progressbar</a></li>
+      <li><a href="Spinner.html">Spinner</a></li>
+      <li><a href="Widget.html">Widget</a></li>
+      
+			
+		</ul>
+	</div>
+			
+		</ul>
+	</div>
+	<div class="cont">  
+
+		<h1>accordion на js без  jQuery</h1>
+
+		<div class="accordionItem">
+			<h2>Котик 1</h2>
+			<div>
+				<p>мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу </p>
+				<p>мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу </p>
+			</div>
+		</div>
+
+		<div class="accordionItem">
+			<h2>Котик 2</h2>
+			<div>
+				<p>мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу </p>
+				<p>мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу </p>
+				
+			</div>
+		</div>
+
+		<div class="accordionItem">
+			<h2>Котик 3</h2>
+			<div>
+				<p>гав</p>
+			</div>
+		</div>
+		<h1>accordion на js  з  jQuery</h1>
+
+		<div class="accordion">
+			
+			<div class="accordionItem1"><h2>Котик 1</h2></div>
+			
+			<div class="accord-content">
+				<p>мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу </p>
+				<p>мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу </p></div>
+				
+				<div class="accordionItem1"><h2>Котик 2</h2></div>
+				
+				<div class="accord-content">
+					<p>мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу </p>
+					<p>мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу </p>
+					<p>мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу </p>
+					<p>мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу мяу </p></div>
+					
+				</div>
+
+				
+				<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+				
+				<script type="text/javascript">
+					
+					$(document).ready(function() {
+						
+						$(".accordion .accordionItem1").click(function() {
+							
+							if($(this).next("div").is(":visible")){
+								
+								$(this).next("div").slideUp("slow");
+								
+							} else {
+								
+								$(".accordion .accord-content").slideUp("slow");
+								
+								$(this).next("div").slideToggle("slow");
+								
+							}
+							
+						});
+						
+					});
+					
+				</script>
+
+			</div>
+		</body>
+		</html>
