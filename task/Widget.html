@@ -5,27 +5,27 @@
 	<link rel="stylesheet" type="text/css" href="..\scc.css">
 	<meta charset="utf-8">
 	<title></title>
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/hot-sneaks/jquery-ui.css" />
-	<script src="http://code.jquery.com/jquery-2.1.3.js"></script>
-	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-		<script type="text/javascript">
-		$(document).ready(function() {
-			$("#demoMenu").menu();
-		});
-	</script> 
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$( function() {
+			$( "#menu2" ).menu();
+		} );
+	</script>
 
 </head>
 <body onload="init()">
 	<div class="menu1">
 
 		<ul class="js-list">
-			      <li><a href="Accordion.html">Accordion</a></li>
-      <li><a href="Slider.html">Slider</a></li>
-      <li><a href="Progressbar.html">Progressbar</a></li>
-      <li><a href="Spinner.html">Spinner</a></li>
-      <li><a href="Widget.html">Widget</a></li>
-      
+			<li><a href="Accordion.html">Accordion</a></li>
+			<li><a href="Slider.html">Slider</a></li>
+			<li><a href="Progressbar.html">Progressbar</a></li>
+			<li><a href="Spinner.html">Spinner</a></li>
+			<li><a href="Widget.html">Widget</a></li>
+			
 			
 		</ul>
 	</div>
@@ -118,31 +118,31 @@
 		
 	</div>
 	<div class="cont">
+
 		<h1>Widget на js з  jQuery</h1>
-		<ul id="demoMenu">
-			
-			<li><a href="#">Котик1</a></li>
-			<li><a href="#">Котик2</a>
+		<ul id="menu2">
+			<li class="ui-state-disabled"><div>Котик1</div></li>
+			<li><div>Котик2</div></li>
+
+			<li><div>Котик3</div>
 				<ul>
-					
-					<li class="ui-state-disabled"><a href="#">мур</a></li>
-					
+					<li><div>кусь</div></li>
+					<li><div>кусь</div></li>
+					<li><div>кусь</div></li>
 				</ul>
 			</li>
 			
-			<li><a href="#">Котик3</a>
-				<ul>
-					<li><a href="#">мяу</a>
-						<ul>
-							
-							<li><a href="#">кусь</a></li>
-							<li><a href="#">кусь</a></li>
-							<li><a href="#">кусь</a></li>
-						</ul>
-					</li>
-					
-					<li class="ui-state-disabled"><a href="#">Собакен1</a></li>
-				</ul>
-			</div>
-		</body>
-		</html>
+		</li>
+		<li><div>Собакен</div>
+			<ul>
+				<li><div>гав</div> </li>
+				<li><div>гав</div></li>
+				
+			</ul>
+		</li>
+	</ul>
+	
+	
+</div>
+</body>
+</html>
