@@ -203,3 +203,7 @@ body {
 
 	width: 200px;
 }
+#menu2 li:hover {
+background-color: #9A6AD6;
+	color: #000;
+}
